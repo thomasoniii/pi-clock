@@ -23,9 +23,21 @@ export default class PiClock extends Component {
 	  var textColor = 'black';
 	  var bgColor = 'white';
 
-	  if (hours < 10) {
-	    hours = '0' + hours;
-	  }
+	  var meridian = '';
+
+    var fHours = hours;
+
+    if (hours > 12) {
+      fHours -= 12;
+      meridian = 'PM';
+    }
+    else {
+      meridian = 'AM';
+    }
+
+	  //if (hours < 10) {
+	  //  hours = '0' + hours;
+	  //}
 
 	  if (minutes < 10) {
 	    minutes = '0' + minutes;
@@ -39,12 +51,16 @@ export default class PiClock extends Component {
 
     if (hours >= 7 && hours <= 7 + 12) {
       image = "wake.png";
+      textColor = 'black';
+      bgColor = 'white';
     }
     else {
       image = "sleep.png";
       textColor = 'lightgray';
       bgColor = 'black';
     }
+
+    document.body.style.backgroundColor = bgColor;
 
     return (
       <div style = {{
@@ -60,7 +76,7 @@ export default class PiClock extends Component {
       }}>
         <div><img src={"img/" + image}></img></div>
         <div style = {{ height : '80px'}}>
-          { hours }:{ minutes }
+          { fHours }:{ minutes } { meridian }
         </div>
       </div>
     )
