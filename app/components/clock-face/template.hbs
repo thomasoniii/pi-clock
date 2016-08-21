@@ -1,0 +1,11 @@
+{{ clock-image image = image color = color height = faceHeight}}
+
+{{#if showTime}}
+  {{clock-time
+    hours   = hours
+    minutes = minutes
+    seconds = seconds
+    color   = color
+    height  = timeHeight
+  }}
+{{/if}}

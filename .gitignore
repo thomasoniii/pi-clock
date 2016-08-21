@@ -1,5 +1,7 @@
 .idea
 build/*
+tmp
+dist
 
 # Logs
 logs
@@ -32,6 +34,7 @@ build/Release
 # Dependency directories
 node_modules
 jspm_packages
+bower_components
 
 # Optional npm cache directory
 .npm
